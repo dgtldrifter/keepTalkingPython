@@ -6,6 +6,7 @@ def main():
 	print("4: led star wires")
 	print("5: symbols")
 	print("6: number keypad")
+	print("8: Simon Says)
 	puzzle = int(input("which puzzle do you have: "))
 
 	if int(puzzle) == 1: button()
@@ -14,6 +15,7 @@ def main():
 	elif int(puzzle) == 4: ledStarWires()
 	elif int(puzzle) == 5: symbolsKeypads()
 	elif int(puzzle) == 6: numberKeypad()
+	elif int(puzzle) == 8: simon()
 	else:
 		print("invalid selection")
 		main()
@@ -379,5 +381,23 @@ def numberKeypad():
 		
 	else:
 		print("FUCK YOU")
-	
+
+		
+def simon():
+	vowel = input("Is there a vowel on the serial? (y/n)")
+	strikes = int(input("What is the number of strikes (0, 1, 2)?"))
+		
+	colorsVowel = [["Blue", "Red", "Yellow", "Green"], ["Yellow", "Green", "Blue", "Red"], ["Green", "Red", "Yellow", "Blue"]]
+	colors = [["Blue", "Yellow", "Green", "Red"], ["Red", "Blue", "Yellow", "Green"], ["Yellow", "Green", "Blue", "Red"]]
+		
+	if vowel == "y":
+		print("Red = ", colorsVowel[strikes][0])
+		print("Blue = ", colorsVowel[strikes][1])
+		print("Green = ", colorsVowel[strikes][2])
+		print("Yellow = ", colorsVowel[strikes][3])
+	else:
+		print("Red = ", colors[strikes][0])
+		print("Blue = ", colors[strikes][1])
+		print("Green = ", colors[strikes][2])
+		print("Yellow = ", colors[strikes][3])
 main()
