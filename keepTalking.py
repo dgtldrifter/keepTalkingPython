@@ -4,12 +4,14 @@ def main():
 	print("2: 6 horizontal wires")
 	print("3: 123abc wires")
 	print("4: led star wires")
+	print("5: symbols")
 	puzzle = int(input("which puzzle do you have: "))
 
 	if int(puzzle) == 1: button()
 	elif int(puzzle) == 2: horizontal6wires()
 	elif int(puzzle) == 3: abc123wires()
 	elif int(puzzle) == 4: ledStarWires()
+	elif int(puzzle) == 5: symbolsKeypads()
 	else:
 		print("invalid selection")
 		main()
@@ -57,8 +59,71 @@ def HoldButton():
 	#this also handles a white strip bc it's a 1 either way
 
 
-def horizontal6wires(): #horizontal 6 
+def horizontal6wires():
 	print("horizontal 6")
+	numberOfWires = input("How many wires are there: ")
+	wires=[]
+	count =1
+	if(numberOfWires == 3):
+		while(count <= 3):
+			wireColor = raw_input("Wire Color: ")
+			wires.append(wireColor)
+			count = count + 1
+		if "red" not in wires:
+			print("CUT SECOND")
+		elif wires[-1] == wires.index("white"):
+			print("CUT LAST WIRE")
+		elif wires.count("blue") > 1:
+			print("CUST LAST BLUE")
+		else:
+			print("CUT LAST WIRE")
+	if(numberOfWires == 4):
+		while(count <= 4):
+			wireColor = raw_input("Wire Color: ")
+			wires.append(wireColor)
+			count = count + 1
+		if wires.count("red") > 1:
+			oddSerial = raw_input("IS the last digit of the serial Number odd? y/n: ")
+			if oddSerial == 'y':
+				print("CUT LAST RED")
+		elif wires[-1] == wires.index("yellow") and "red" not in wires:
+			print("CUT FIRST WIRE")
+		elif wires.count("blue") == 1:
+			print("CUT FIRST WIRE")
+		elif wires.count("yellow") > 1:
+			print("CUT LAST WIRE")
+		else:
+			print("CUST SECOND WIRE")
+	if(numberOfWires == 5):
+		while(count <= 5):
+			wireColor = raw_input("Wire Color: ")
+			wires.append(wireColor)
+			count = count + 1		
+ 		if wires[-1] == "black":
+ 			oddSerial = raw_input("IS the last digit of the serial Number odd? y/n: ")
+			if oddSerial == 'y':
+				print("CUT FOURTH WIRE")
+		elif wires.count("red") == 1 and wires.count("yellow") > 1:
+			print("CUT FIRST WIRE")
+		elif "black" not in wires:
+			print("CUT SECOND WIRE")
+		else:
+			print("CUT FIRST WIRE")
+	if(numberOfWires == 6):
+		while(count <= 6):
+			wireColor = raw_input("Wire Color: ")
+			wires.append(wireColor)
+			count = count + 1	
+		if "yellow" not in wires:
+			oddSerial = raw_input("IS the last digit of the serial Number odd? y/n: ")
+			if oddSerial == 'y':
+				print("CUT THIRD WIRE")
+		elif wires.count("yellow") == 1 and wires.count("white") > 1:
+			print("CUT FOURTH WIRE")
+		elif "red" not in wires:
+			print("CUT LAST WIRE")
+		else:
+			print("CUT FOURTH WIRE")				
 	pass
 
 def abc123wires(): 
@@ -103,7 +168,29 @@ def ledStarWires():
 	print("ledStarWires") # michael
 	pass
 
+def symbolsKeypads():
+	print("Symbols")
+	count = 1
+	list1 = ["oline","at", "lambda", "harryPotter", "octopus", "crazyH","backwardsC" ]
+	list2 = ["backwardsEuro","oline", "backwardsC", "co", "star", "crazyH","questionMark" ]
+	list3 = ["copyright","ballsack", "co", "ik", "half3", "lambda","star" ]
+	list4 = ["fatSix","paragraph", "tb", "octopus", "ik", "questionMark","smile" ]
+	list5 = ["trident","smile", "tb", "forwardC", "paragraph", "dragon","star" ]
+	list6 = ["fatSix","backwardsEuro", "puzzle", "ae", "trident", "n","omega" ]
 
-	# simon would be hard
+	lists = [list1, list2, list3, list4,list5,list6]
+	symbols =[]
+	order=[]
+	while(count <= 4):
+		symbols.append(raw_input("Symbol: "))
+		count = count + 1
+	for list in lists:
+		if set(symbols).issubset(list):
+			for symbol in symbols:	
+				order.append(list.index(symbol))
+			order.sort()
+			for symbol in order:
+				print(list[symbol])	
+
 
 main()
