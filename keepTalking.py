@@ -165,8 +165,74 @@ def abc123wires():
 
 
 def ledStarWires():
-	print("ledStarWires") # michael
-	pass
+	led = input("LEDs from left to right (y for yes, n for no, include space between each one)?").split()
+	star = input("Stars from left to right (y for yes, n for no, include spaces between each one)?").split()
+	color = input("Colors of each wire ('red', 'blue', 'rw', 'bw', 'rb', 'white', 'n' for no)").split()
+	for i in range(0, 6):
+		if color[i] == "n":
+			continue
+		if led[i] == "y":
+			if star[i] == "y":
+				if (color[i] == "red" or color[i] == "rw" or color[i] == "white"):
+					question = input("Does the bomb have two or more batteries (y/n)?")
+					if (question == 'y' or question == "Y"):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				elif (color[i] == "blue" or color[i] == "bw"):
+					question = input("Does the bomb have a parallel port? (y/n)?")
+					if (question == 'y' or question == 'Y'):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				elif (color[i] == "rb"):
+					print("Don't Cut")
+			else:
+				if (color[i] == "red" or color[i] == "rw"):
+					question = input("Does the bomb have two or more batteries (y/n)?")
+					if (question == 'y' or question == "Y"):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				elif (color[i] == "blue" or color[i] == "bw"):
+					question = input("Does the bomb have a parallel port? (y/n)?")
+					if (question == 'y' or question == 'Y'):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				elif (color[i] == "rb"):
+					question = input("Is the last digit of the serial number even (y/n)?")
+					if (question == "y" or question == "Y"):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				else:
+					print("Don't Cut")
+		else:
+			if star[i] == "y":
+				if (color[i] == "red" or color[i] == "rw" or color[i] == "white"):
+					print("Cut")
+				elif (color[i] == "blue" or color[i] == "bw"):
+					question = input("Is the last digit of the serial number even (y/n)?")
+					if (question == "y" or question == "Y"):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				elif (color[i] == "rb"):
+					question = input("Does the bomb have a parallel port? (y/n)?")
+					if (question == 'y' or question == 'Y'):
+						print("Cut")
+					else:
+						print("Don't Cut")
+			else:
+				if (color[i] == "red" or color[i] == "blue" or color[i] == "rb" or color[i] == "rw" or color[i] == "bw"):
+					question = input("Is the last digit of the serial number even (y/n)?")
+					if (question == "y" or question == "Y"):
+						print("Cut")
+					else:
+						print("Don't Cut")
+				else:
+					print("Cut")
 
 def symbolsKeypads():
 	print("Symbols")
