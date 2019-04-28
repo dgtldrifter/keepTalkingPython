@@ -5,6 +5,7 @@ def main():
 	print("3: 123abc wires")
 	print("4: led star wires")
 	print("5: symbols")
+	print("6: number keypad")
 	puzzle = int(input("which puzzle do you have: "))
 
 	if int(puzzle) == 1: button()
@@ -12,6 +13,7 @@ def main():
 	elif int(puzzle) == 3: abc123wires()
 	elif int(puzzle) == 4: ledStarWires()
 	elif int(puzzle) == 5: symbolsKeypads()
+	elif int(puzzle) == 6: numberKeypad()
 	else:
 		print("invalid selection")
 		main()
@@ -258,5 +260,124 @@ def symbolsKeypads():
 			for symbol in order:
 				print(list[symbol])	
 
+def numberKeypad():
+	print("NumberKeyPad")
+	print("Stage 1")
+	displayNum = int(input("Display Number: "))
+	
+	if displayNum == 1:
+		print("STAGE1: SECOND POSITION")
+		stageLabel1 = int(input("Lable Number: "))
+		stagePosition1 = "SECOND POSITION"
+		
+	elif displayNum == 2:
+		print("STAGE1: SECOND POSITION")
+		stagePosition1 = "SECOND POSITION"
+		stageLabel1 = int(input("Lable Number: "))
+		
+	elif displayNum == 3:
+		print("STAGE1: THIRD POSITION")
+		stagePosition1 = "THIRD POSITION"
+		stageLabel1 = int(input("Lable Number: "))
 
+	elif displayNum == 4:
+		print("STAGE1: FOURTH POSITION")
+		stagePosition1 = "FOURTH POSITION"
+		stageLabel1 = int(input("Lable Number: "))
+		
+	else:
+		print("FUCK YOU")
+		
+		
+	print("Stage 2")
+	displayNum = int(input("Display Number: "))
+	if displayNum == 1:		
+		print("LABEL 4")
+		stageLabel2 = int(input("Lable Number: "))
+		stagePosition2 = input("Position of Lable 4: ")
+		
+	elif displayNum == 2:
+		print(stagePosition1)
+		stagePosition2 = stagePosition1
+		stageLabel2 = int(input("Lable Number: "))
+		
+	elif displayNum == 3:
+		print("FIRST POSITION")
+		stagePosition2 = "FIRST POSITION"
+		stageLabel2 = int(input("Lable Number: "))
+
+	elif displayNum == 4:
+		print(stagePosition1)
+		stagePosition2 = stagePosition1
+		stageLabel2 = int(input("Lable Number: "))
+		
+	else:
+		print("FUCK YOU")
+		
+	print("Stage 3")
+	displayNum = int(input("Display Number: "))
+	if displayNum == 1:		
+		
+		print("LABEL: "+ str(stageLabel2))
+		stagePosition3 = input("Position of Lable: ")
+		stageLabel3 = int(input("Lable Number: "))
+		
+	elif displayNum == 2:		
+		print("LABEL: "+ str(stageLabel1))
+		stagePosition3 = input("Position of Lable: ")
+		stageLabel3 = int(input("Lable Number: "))
+		
+	elif displayNum == 3:
+		print("THIRD POSITION")
+		stagePosition3 = "THIRD POSITION"
+		stageLabel3 = int(input("Lable Number: "))
+		
+	elif displayNum == 4:
+		print("LABEL 4")
+		stagePosition3 = input("Position of Lable 4: ")
+		stageLabel3 = int(input("Lable Number: "))
+	else:
+		print("FUCK YOU")	
+		
+	print("Stage 4")
+	displayNum = int(input("Display Number: "))
+	if displayNum == 1:		
+		print(stagePosition1)
+		stageLabel4 = int(input("Lable Number: "))
+		stagePosition4 = stagePosition1
+		
+	elif displayNum == 2:		
+		print("FIRST POSITION")
+		stagePosition4 = "FIRST POSITION"
+		stageLabel4 = int(input("Lable Number: "))
+		
+	elif displayNum == 3:
+		print(stagePosition2)
+		stagePosition4 = stagePosition2
+		stageLabel4 = int(input("Lable Number: "))
+		
+	elif displayNum == 4:
+		print(stagePosition2)
+		stagePosition4 = stagePosition2
+		stageLabel4 = int(input("Lable Number: "))
+	else:
+		print("FUCK YOU")
+		
+	print("Stage 5")
+	displayNum = int(input("Display Number: "))
+	if displayNum == 1:		
+		print("LABEL: " + str(stageLabel1))
+		
+	elif displayNum == 2:		
+		print("LABEL: " + str(stageLabel2))
+			
+	elif displayNum == 3:
+		print("LABEL: " + str(stageLabel4))
+		
+	elif displayNum == 4:
+		print("LABEL: " + str(stageLabel3))
+		
+	else:
+		print("FUCK YOU")
+	
 main()
